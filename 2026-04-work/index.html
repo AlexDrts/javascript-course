@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello JS World!</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+</head>
+
+<body id="body">
+
+<<div id="platform"></div>
+
+<img id="hero" src="mario.png">
+<img id="enemy" src="goomba.png">
+
+<script>
+  let body = document.getElementById("body");
+  body.addEventListener("keydown", move);
+
+  let hero = document.getElementById("hero");
+  let enemy = document.getElementById("enemy");
+
+  let x = 50;
+
+  hero.style.left = x + "px";
+
+  function move(event) {
+
+    if (event.keyCode === 37) {
+      x -= 10;
+      hero.style.left = x + "px";
+    }
+
+    else if (event.keyCode === 39) {
+      x += 10;
+      hero.style.left = x + "px";
+    }
+
+    let enemyX = 500;
+
+    if (x + 80 > enemyX && x < enemyX + 80) {
+      alert("Ви зіткнулися з ворогом!");
+    }
+  }
+</script>
+</body>
+</html>
+

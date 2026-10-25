@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body>
+<script>
+  let rows = +prompt("Введіть кількість рядків:");
+  let cols = +prompt("Введіть кількість стовпчиків:");
+
+  let divWidth = 80;
+  let divHeight = 80;
+
+  function randomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+
+      let div = document.createElement("div");
+
+      div.textContent = `${i}, ${j}`;
+
+      div.style.position = "absolute";
+      div.style.left = j * (divWidth + 10) + 20 + "px";
+      div.style.top = i * (divHeight + 10) + 20 + "px";
+
+      div.style.width = divWidth + "px";
+      div.style.height = divHeight + "px";
+
+      div.style.backgroundColor = randomColor();
+      div.style.border = "3px solid " + randomColor();
+
+      div.style.display = "flex";
+      div.style.justifyContent = "center";
+      div.style.alignItems = "center";
+
+      document.body.appendChild(div);
+    }
+  }
+</script>
+</body>
+</html>
+
